@@ -84,14 +84,120 @@ Table 2: Sales Transactions
 2️⃣ Exploratory Data Analysis (EDA)  
 3️⃣ SQL/ Python Analysis 
 
-- First, explain codes' purpose - what they do
+```
+select
+  format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) month
+  ,count(distinct TransactionID) order_count
+from `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+group by 1
+order by 1;
+```
 
-- Then how your query/ code & Insert screenshots of your result
+```
+SELECT
+ format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) month
+ ,COUNT(DISTINCT CustomerCode) AS count_customer
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY month
+ORDER BY month;
+```
 
-- Finally, explain your observations/ findings from the results  ts findings
-  
- _Describe trends, key metrics, and patterns._  
+```
+WITH num_trans AS ( -- calculate num customers buying by gender
+    SELECT
+        SexType
+        ,ProductBrand
+        ,COUNT(TransactionID) AS count_order
+    FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+    GROUP BY 1, 2
+),
+ranking AS ( -- ranking
+    SELECT
+        SexType
+        ,ProductBrand
+        ,count_order
+        ,DENSE_RANK() OVER (PARTITION BY SexType ORDER BY count_order DESC) AS Rank
+    FROM num_trans
+)
+SELECT
+    SexType
+    ,ProductBrand
+    ,count_order
+FROM ranking
+WHERE Rank <= 3
+ORDER BY 1;
+```
 
+```
+WITH num_trans AS ( -- B1: Mỗi nhóm tuổi mua bn sp
+  SELECT
+    YearOldRange As Age_group
+    ,SUM(Unit) AS Total_units
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY 1
+),
+ranking AS ( -- rank
+  SELECT
+      Age_group
+      ,Total_units
+      ,DENSE_RANK() OVER (ORDER BY Total_units DESC) AS Rank
+  FROM num_trans
+)
+SELECT
+    Age_group
+    ,Total_units
+FROM ranking
+WHERE Rank =1;
+```
+
+```
+WITH total AS ( -- B1: Tính Salevalue của mỗi nhóm tuổi
+  SELECT
+    YearOldRange As Age_group
+    ,SUM(SalesValue) AS Total_revenue
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY 1
+),
+ranking AS ( -- rank
+  SELECT
+      Age_group
+      ,Total_revenue
+      ,DENSE_RANK() OVER (ORDER BY Total_revenue DESC) AS Rank
+  FROM total
+)
+SELECT
+    Age_group
+    ,Total_revenue
+FROM ranking
+WHERE Rank <=2;
+
+```
+
+```
+WITH monthly_sales AS ( -- tính salevalue mỗi product mỗi tháng
+    SELECT
+        format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) AS Month
+        ,ProductName
+        ,SUM(SalesValue) AS total_sales
+    FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+    GROUP BY 1,2
+),
+ranking AS ( -- ranking doanh thu của mỗi product theo tháng
+    SELECT
+        Month
+        ,ProductName
+        ,total_sales
+        ,DENSE_RANK() OVER (PARTITION BY Month ORDER BY total_sales DESC) AS Rank
+    FROM monthly_sales
+)
+SELECT
+    Month
+    ,ProductName
+    ,total_sales
+FROM ranking
+WHERE Rank <= 3
+ORDER BY 1
+```
 ---
 
 ## 🔎 Final Conclusion & Recommendations  
