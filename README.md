@@ -33,13 +33,13 @@
 
 ### 👤 Who is this project for?  
 
-📊 Data analysts & business analysts in retail
+📊 **Data analysts** in retail
 
-🧠 Strategy teams in mobile retail companies
+🧠 **Strategy teams** in mobile retail companies
 
-💼 Retail decision-makers looking to align supply with demand
+💼 **Retail decision-makers** looking to align supply with demand
 
-📣 Marketing teams aiming to personalize offers and boost campaign ROI
+📣 **Marketing teams** aiming to personalize offers and boost campaign ROI
 
 
 
