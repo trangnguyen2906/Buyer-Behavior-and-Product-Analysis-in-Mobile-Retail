@@ -247,6 +247,11 @@ ORDER BY YearOldRange, rank;
 <img src="https://drive.google.com/uc?export=view&id=16ZB79ry-wR0j44o21L4K0e_PEpucKCId" width="600"/>
 
 #### 💡 Findings: 
+- Across all age groups, the top 3 most preferred brands are consistent:
+
+  + **Samsung** is dominant across all age segments
+  
+  + **Nokia and Q-SMART** alternate in 2nd and 3rd positions
 
 #### 🟡 **Who are the top 10 most loyal customers based on purchase count?**
 
@@ -272,13 +277,16 @@ SELECT
   TotalSpent,
   loyalty_rank
 FROM ranked_customers
-WHERE loyalty_rank <= 10
+WHERE loyalty_rank <= 8
 ORDER BY loyalty_rank;
 ```
 
 <img src="https://drive.google.com/uc?export=view&id=1VH-32Uhp8faQX-o65FRpfiYcPHzC3gGm" width="600"/>
 
 #### 💡 Findings: 
+- Top loyal customers made between 9 to 27 purchases
+- Highest spender spent over 35.7 million VND
+- Loyalty rank is based on order frequency, not just spend
 
 #### 🟡 **Which city/region has the most active customers?**
 > ➤ Discover regional customer hotspots for local targeting or expansion.
@@ -294,7 +302,9 @@ ORDER BY UniqueCustomers DESC;
 <img src="https://drive.google.com/uc?export=view&id=1BPoysQTH8P0LKotprVDlSHyTR172A9Kd" width="450"/>
 
 #### 💡 Findings: 
+- **Ho Chi Minh City** leads with a massive gap: **53,651 unique customers**
 
+- Followed by **Southeast (13,147)** and **Red River Delta (7,220)**
 
 
 2️⃣ Product Sales & Trend Analysis 
