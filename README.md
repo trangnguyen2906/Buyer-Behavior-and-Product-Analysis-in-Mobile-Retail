@@ -102,11 +102,11 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 ## ⚒️ Main Process
 
-## 1️⃣ **Customer Behavior Analysis**
+### 1️⃣ **Customer Behavior Analysis**
 
 - ✅ **Objective**: Identify who the customers are, and understand their shopping habits
 
-### 🟡 **How many customers buy each month?**
+#### 🟡 **How many customers buy each month?**
 
 > ➤ Track customer volume over time to monitor acquisition and retention trends.
   
@@ -121,7 +121,7 @@ ORDER BY month;
 <img src="https://drive.google.com/uc?export=view&id=1klgJ6ET2CRJAbT-rKqPr9h1k8cKCPNJw" width="450"/>
 
 
-### 🟡 **Which gender & age groups buy the most?**
+#### 🟡 **Which gender & age groups buy the most?**
 
 > ➤ Identify the most active customer segments for targeted marketing.
   
@@ -137,7 +137,7 @@ ORDER BY Total_Orders DESC;
 
 <img src="https://drive.google.com/uc?export=view&id=1c30glEN8W8RrXCMPXMNtnYc25vChykkX" width="600"/>
 
-### 🟡 **What are the most purchased brands per gender?**
+#### 🟡 **What are the most purchased brands per gender?**
 
 > ➤ Understand brand preference by gender to tailor promotional campaigns.
   
@@ -169,7 +169,7 @@ ORDER BY 1;
 
 <img src="https://drive.google.com/uc?export=view&id=1uQTvkITgKGevTUAcnywHIeLnJcoZzNb4" width="600"/>
 
-### 🟡 **Which phone models are most preferred by males and females?**
+#### 🟡 **Which phone models are most preferred by males and females?**
 
 > ➤ Reveal model-level product preferences for personalized recommendations.
 
@@ -199,7 +199,7 @@ ORDER BY SexType, rank;
 <img src="https://drive.google.com/uc?export=view&id=1Xq8CZVl_NilCT-RgEScFVKS-_kU5cXcC" width="600"/>
 
 
-### 🟡 **What brands are most popular in each age group?**
+#### 🟡 **What brands are most popular in each age group?**
 > ➤ Align brand strategy with age-specific customer preferences.
 
 ```
@@ -224,7 +224,7 @@ ORDER BY YearOldRange, rank;
 ```
 <img src="https://drive.google.com/uc?export=view&id=16ZB79ry-wR0j44o21L4K0e_PEpucKCId" width="600"/>
 
-### 🟡 **Who are the top 10 most loyal customers based on purchase count?**
+#### 🟡 **Who are the top 10 most loyal customers based on purchase count?**
 
 > ➤ Find high-value repeat customers to reward or upsell.
 
@@ -254,7 +254,7 @@ ORDER BY loyalty_rank;
 
 <img src="https://drive.google.com/uc?export=view&id=1VH-32Uhp8faQX-o65FRpfiYcPHzC3gGm" width="600"/>
 
-### 🟡 **Which city/region has the most active customers?**
+#### 🟡 **Which city/region has the most active customers?**
 > ➤ Discover regional customer hotspots for local targeting or expansion.
 
 ```
@@ -266,6 +266,9 @@ GROUP BY GeographicalArea
 ORDER BY UniqueCustomers DESC;
 ```
 <img src="https://drive.google.com/uc?export=view&id=1BPoysQTH8P0LKotprVDlSHyTR172A9Kd" width="450"/>
+
+
+
 
 
 2️⃣ Product Sales & Trend Analysis 
