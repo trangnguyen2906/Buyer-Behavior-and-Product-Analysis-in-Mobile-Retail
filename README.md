@@ -106,8 +106,10 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 - ✅ **Objective**: Identify who the customers are, and understand their shopping habits
 
-> **How many customers buy each month?** (`CustomerCode`)
+🧠 **How many customers buy each month?**
 
+> ➤ Track customer volume over time to monitor acquisition and retention trends.
+  
 ```
 SELECT
  format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) month
@@ -117,10 +119,145 @@ GROUP BY month
 ORDER BY month;
 ```
 
-> **Which gender & age group prefers which phone (top 3)?**
-> **Which age group buys the most and contributes the most revenue?**
-> **What brands do customers aged 26–30 prefer?**   
+
+🧠 **Which gender & age groups buy the most?**
+
+> ➤ Identify the most active customer segments for targeted marketing.
   
+```
+SELECT 
+  SexType,
+  YearOldRange,
+  COUNT(TransactionID) AS Total_Orders
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY SexType, YearOldRange
+ORDER BY Total_Orders DESC;
+```
+
+🧠 **What are the most purchased brands per gender?**
+
+> ➤ Understand brand preference by gender to tailor promotional campaigns.
+  
+```
+WITH num_trans AS ( -- tính mỗi KH Nam/Nữ mua bn sp mỗi brand
+   SELECT
+       SexType
+       ,ProductBrand
+       ,COUNT(TransactionID) AS count_order
+   FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+   GROUP BY 1, 2
+),
+ranking AS ( -- ranking
+   SELECT
+       SexType
+       ,ProductBrand
+       ,count_order
+       ,DENSE_RANK() OVER (PARTITION BY SexType ORDER BY count_order DESC) AS Rank
+   FROM num_trans
+)
+SELECT
+   SexType
+   ,ProductBrand
+   ,count_order
+FROM ranking
+WHERE Rank <= 3
+ORDER BY 1;
+```
+
+🧠 **Which phone models are most preferred by males and females?**
+
+> ➤ Reveal model-level product preferences for personalized recommendations.
+
+```
+WITH num_trans AS (
+   SELECT
+       YearOldRange,
+       ProductBrand,
+       COUNT(TransactionID) AS count_order
+   FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+   GROUP BY 1, 2
+),
+ranking AS (
+   SELECT
+       YearOldRange,
+       ProductBrand,
+       count_order,
+       DENSE_RANK() OVER (PARTITION BY YearOldRange ORDER BY count_order DESC) AS Rank
+   FROM num_trans
+)
+SELECT
+   YearOldRange,
+   ProductBrand,
+   count_order
+FROM ranking
+WHERE Rank <= 3
+ORDER BY YearOldRange;
+```
+
+
+🧠 **What brands are most popular in each age group?**
+> ➤ Align brand strategy with age-specific customer preferences.
+
+```
+WITH brand_age AS (
+  SELECT 
+    YearOldRange,
+    ProductBrand,
+    COUNT(TransactionID) AS order_count
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY YearOldRange, ProductBrand
+),
+ranked_brand_age AS (
+  SELECT *,
+    RANK() OVER (PARTITION BY YearOldRange ORDER BY order_count DESC) AS rank
+  FROM brand_age
+)
+SELECT 
+  YearOldRange, ProductBrand, order_count
+FROM ranked_brand_age
+WHERE rank <= 3
+ORDER BY YearOldRange, rank;
+```
+
+🧠 **Who are the top 10 most loyal customers based on purchase count?**
+
+> ➤ Find high-value repeat customers to reward or upsell.
+
+```
+WITH customer_orders AS (
+  SELECT 
+    CustomerCode,
+    COUNT(TransactionID) AS OrderCount,
+    SUM(SalesValue) AS TotalSpent
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY CustomerCode
+),
+ranked_customers AS (
+  SELECT *,
+    DENSE_RANK() OVER (ORDER BY OrderCount DESC) AS loyalty_rank
+  FROM customer_orders
+)
+SELECT 
+  CustomerCode,
+  OrderCount,
+  TotalSpent,
+  loyalty_rank
+FROM ranked_customers
+WHERE loyalty_rank <= 10
+ORDER BY loyalty_rank;
+```
+
+🧠 **Which city/region has the most active customers?**
+> ➤ Discover regional customer hotspots for local targeting or expansion.
+
+```
+SELECT 
+  GeographicalArea,
+  COUNT(DISTINCT CustomerCode) AS UniqueCustomers
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY GeographicalArea
+ORDER BY UniqueCustomers DESC;
+```
 
 2️⃣ Product Sales & Trend Analysis 
 3️⃣ Add-On, Bundle, & Installment Behavior
