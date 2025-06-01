@@ -118,7 +118,7 @@ FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
 GROUP BY month
 ORDER BY month;
 ```
-<img src="https://drive.google.com/uc?export=view&id=1klgJ6ET2CRJAbT-rKqPr9h1k8cKCPNJw" width="600"/>
+<img src="https://drive.google.com/uc?export=view&id=1klgJ6ET2CRJAbT-rKqPr9h1k8cKCPNJw" width="450"/>
 
 
 🧠 **Which gender & age groups buy the most?**
