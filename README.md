@@ -11,31 +11,35 @@
 ## 📌 Background & Overview  
 
 
-### Objective:
+### 🎯 Objective:
 ### 📖 What is this project about? What Business Question will it solve?
+- Mobile retailers often struggle to align their **product strategies** with actual **consumer purchase behaviors.**
+  
+- Understanding **who buys what, when, and how** (e.g. through bundles or installments) is critical for:
+  +  Making informed **inventory decisions**
+  +  Launching targeted **marketing campaigns**
+  +  Increasing **revenue per customer**
 
-Clearly outline what this project does, what business questions the project will solve. 
+- This project **uses SQL** to analyze mobile phone transaction data to solve the following problem:
 
-- Provide a brief introduction - Write in bullet point format
-- Point out the main business question
+> How can mobile retailers **improve product strategy** and **sales decisions** based on consumer purchase patterns in mobile retail?
 
+✅ Identify which customer segments (by age/gender) drive the most purchases and revenue
 
- _Example:_
-  This project uses Python to analyze transaction data from KPMG to:
+✅ Discover top-performing products and seasonal trends
 
-✔️ Identify the behavior in customer's first transaction.  
-✔️ Provide actionable insights to increase retention rate   
- 
+✅ Analyze add-on and installment behavior to guide pricing and bundling strategies
 
 
 ### 👤 Who is this project for?  
 
-Mention who might benefit from this project 
+📊 Data analysts & business analysts in retail
 
- _Example:_
+🧠 Strategy teams in mobile retail companies
 
-✔️ Data analysts & business analysts  
-✔️ Decision-makers & stakeholders  
+💼 Retail decision-makers looking to align supply with demand
+
+📣 Marketing teams aiming to personalize offers and boost campaign ROI
 
 
 
