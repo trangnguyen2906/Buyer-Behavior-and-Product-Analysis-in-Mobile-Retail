@@ -169,29 +169,26 @@ ORDER BY 1;
 > ➤ Reveal model-level product preferences for personalized recommendations.
 
 ```
-WITH num_trans AS (
-   SELECT
-       YearOldRange,
-       ProductBrand,
-       COUNT(TransactionID) AS count_order
-   FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-   GROUP BY 1, 2
+WITH phone_count AS (
+  SELECT 
+    SexType,
+    ProductName,
+    COUNT(TransactionID) AS order_count
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY SexType, ProductName
 ),
-ranking AS (
-   SELECT
-       YearOldRange,
-       ProductBrand,
-       count_order,
-       DENSE_RANK() OVER (PARTITION BY YearOldRange ORDER BY count_order DESC) AS Rank
-   FROM num_trans
+ranked_phone AS (
+  SELECT *,
+    RANK() OVER (PARTITION BY SexType ORDER BY order_count DESC) AS rank
+  FROM phone_count
 )
-SELECT
-   YearOldRange,
-   ProductBrand,
-   count_order
-FROM ranking
-WHERE Rank <= 3
-ORDER BY YearOldRange;
+SELECT 
+  SexType,
+  ProductName,
+  order_count
+FROM ranked_phone
+WHERE rank <= 5
+ORDER BY SexType, rank;
 ```
 
 
