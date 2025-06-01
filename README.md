@@ -122,6 +122,10 @@ ORDER BY month;
 
 #### 💡 Findings: 
 
+- Customer volume **increased steadily** over the 5-month period:
+  + From **16,130** in January to **19,934** in May.
+  + This trend indicates **growing customer acquisition**
+
 #### 🟡 **Which gender & age groups buy the most?**
 
 > ➤ Identify the most active customer segments for targeted marketing.
@@ -139,6 +143,9 @@ ORDER BY Total_Orders DESC;
 <img src="https://drive.google.com/uc?export=view&id=1c30glEN8W8RrXCMPXMNtnYc25vChykkX" width="600"/>
 
 #### 💡 Findings:
+- The most active buyers are both **Males and Females aged 26–30.**
+- Followed by customers aged 31–35 for both genders.
+- Younger and older segments (e.g., “<21” and “>40”) purchase significantly less.
 
 #### 🟡 **What are the most purchased brands per gender?**
 
@@ -172,7 +179,13 @@ ORDER BY 1;
 
 <img src="https://drive.google.com/uc?export=view&id=1uQTvkITgKGevTUAcnywHIeLnJcoZzNb4" width="600"/>
 
+
 #### 💡 Findings: 
+- Top 3 brands for both genders are the same but with different order:
+
+  + **Males:** Samsung, Nokia, Q-SMART
+  
+  + **Females:** Samsung, Nokia, Q-SMART (same brands, higher Samsung preference)
 
 #### 🟡 **Which phone models are most preferred by males and females?**
 
@@ -204,6 +217,8 @@ ORDER BY SexType, rank;
 <img src="https://drive.google.com/uc?export=view&id=1Xq8CZVl_NilCT-RgEScFVKS-_kU5cXcC" width="600"/>
 
 #### 💡 Findings: 
+
+Both genders love **the S5360 (Toroto) series**, but females show stronger preference for **white** model.
 
 
 #### 🟡 **What brands are most popular in each age group?**
