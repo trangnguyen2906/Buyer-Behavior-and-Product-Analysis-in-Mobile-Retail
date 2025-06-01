@@ -48,36 +48,54 @@
 ## 📂 Dataset Description & Data Structure  
 
 ### 📌 Data Source  
-- Source: (Mention where the dataset is obtained from—Kaggle, company database, government sources, etc.)  
-- Size: (Mention the number of rows & columns)  
-- Format: (.csv, .sql, .xlsx, etc.)  
+- **Source**: Internal mobile retail sales records
+- **Size**:
+  - `Phone_Sales.csv`: 95,307 rows × 15 columns
+  - `Accessories_Sales.csv`: 35,642 rows × 7 columns
+- **Format**: `.csv` files
 
 ### 📊 Data Structure & Relationships  
 
 #### 1️⃣ Tables Used:  
-Mention how many tables are in the dataset.  
+- `Phone_Sales`: Logs all phone-related purchases
+- `Accessories_Sales`: Tracks sales of add-ons such as accessories or insurance
+
+These two tables can be **joined via `transactionID` or `customer_code`**
 
 #### 2️⃣ Table Schema & Data Snapshot  
 
-Table 1: Products Table  
+**Table 1: Phone_Sales**
 
-👉🏻 Insert a screenshot of table schema 
+| Column Name        | Data Type | Description                            |
+|--------------------|-----------|----------------------------------------|
+| TransactionID      | TEXT      | Unique transaction identifier          |
+| CustomerCode       | TEXT      | Unique customer identifier             |
+| ProductName        | TEXT      | Name of the phone model                |
+| ProductBrand       | TEXT      | Brand of the phone                     |
+| DatePurchase       | DATE      | Date of transaction                    |
+| GeographicalArea   | TEXT      | City or region of purchase             |
+| Payment_method     | TEXT      | Payment type (e.g., Full, Installment) |
+| Bank               | TEXT      | Bank used for installment (if any)     |
+| Color              | TEXT      | Color of phone                         |
+| Carrier            | TEXT      | Mobile carrier (e.g., Mobifone)        |
+| SexType            | TEXT      | Gender of the customer                 |
+| YearOldRange       | TEXT      | Age group of customer                  |
+| Unitprice          | FLOAT     | Price per phone unit                   |
+| SalesValue         | FLOAT     | Total transaction value                |
+| Unit               | INT       | Quantity purchased         
 
-📌If the table is too big, only capture a part of it that contains key metrics you used in the projects or put the table in toggle
 
- _Example:_
+**Table 2: Accessories Sales**
 
-| Column Name | Data Type | Description |  
-|-------------|----------|-------------|  
-| Product_ID  | INT      | Unique identifier for each product |  
-| Name        | TEXT     | Product name |  
-| Category    | TEXT     | Product category |  
-| Price       | FLOAT    | Price per unit |  
-
-
-Table 2: Sales Transactions  
-
-👉🏻 Insert a screenshot of table schema.
+| Column Name         | Data Type | Description                            |
+|---------------------|-----------|----------------------------------------|
+| TransactionID       | TEXT      | Transaction ID (can match phone sales) |
+| CustomerCode        | TEXT      | Unique customer identifier             |
+| Accessories_name    | TEXT      | Name of the accessory                  |
+| Accessories_subname | TEXT      | Accessory subtype                      |
+| Unitprice           | FLOAT     | Unit price of accessory                |
+| Unit                | INT       | Quantity purchased                     |
+| SalesValue          | FLOAT     | Total value of the transaction  
 
 
 ---
