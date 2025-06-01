@@ -118,6 +118,7 @@ FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
 GROUP BY month
 ORDER BY month;
 ```
+<img src="https://drive.google.com/uc?export=view&id=1klgJ6ET2CRJAbT-rKqPr9h1k8cKCPNJw" width="600"/>
 
 
 🧠 **Which gender & age groups buy the most?**
@@ -133,6 +134,8 @@ FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
 GROUP BY SexType, YearOldRange
 ORDER BY Total_Orders DESC;
 ```
+
+<img src="https://drive.google.com/uc?export=view&id=1c30glEN8W8RrXCMPXMNtnYc25vChykkX" width="600"/>
 
 🧠 **What are the most purchased brands per gender?**
 
@@ -164,6 +167,8 @@ WHERE Rank <= 3
 ORDER BY 1;
 ```
 
+<img src="https://drive.google.com/uc?export=view&id=1uQTvkITgKGevTUAcnywHIeLnJcoZzNb4" width="600"/>
+
 🧠 **Which phone models are most preferred by males and females?**
 
 > ➤ Reveal model-level product preferences for personalized recommendations.
@@ -191,6 +196,8 @@ WHERE rank <= 5
 ORDER BY SexType, rank;
 ```
 
+<img src="https://drive.google.com/uc?export=view&id=1Xq8CZVl_NilCT-RgEScFVKS-_kU5cXcC" width="600"/>
+
 
 🧠 **What brands are most popular in each age group?**
 > ➤ Align brand strategy with age-specific customer preferences.
@@ -215,6 +222,7 @@ FROM ranked_brand_age
 WHERE rank <= 3
 ORDER BY YearOldRange, rank;
 ```
+<img src="https://drive.google.com/uc?export=view&id=16ZB79ry-wR0j44o21L4K0e_PEpucKCId" width="600"/>
 
 🧠 **Who are the top 10 most loyal customers based on purchase count?**
 
@@ -244,6 +252,8 @@ WHERE loyalty_rank <= 10
 ORDER BY loyalty_rank;
 ```
 
+<img src="https://drive.google.com/uc?export=view&id=1VH-32Uhp8faQX-o65FRpfiYcPHzC3gGm" width="600"/>
+
 🧠 **Which city/region has the most active customers?**
 > ➤ Discover regional customer hotspots for local targeting or expansion.
 
@@ -255,8 +265,11 @@ FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
 GROUP BY GeographicalArea
 ORDER BY UniqueCustomers DESC;
 ```
+<img src="https://drive.google.com/uc?export=view&id=1BPoysQTH8P0LKotprVDlSHyTR172A9Kd" width="600"/>
+
 
 2️⃣ Product Sales & Trend Analysis 
+
 3️⃣ Add-On, Bundle, & Installment Behavior
 
 ```
