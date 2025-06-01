@@ -102,9 +102,28 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 ## ⚒️ Main Process
 
-1️⃣ Data Cleaning & Preprocessing  
-2️⃣ Exploratory Data Analysis (EDA)  
-3️⃣ SQL/ Python Analysis 
+### 1️⃣ **Customer Behavior Analysis**
+
+- ✅ **Objective**: Identify who the customers are, and understand their shopping habits
+
+> **How many customers buy each month?** (`CustomerCode`)
+
+```
+SELECT
+ format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) month
+ ,COUNT(DISTINCT CustomerCode) AS count_customer
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY month
+ORDER BY month;
+```
+
+> **Which gender & age group prefers which phone (top 3)?**
+> **Which age group buys the most and contributes the most revenue?**
+> **What brands do customers aged 26–30 prefer?**   
+  
+
+2️⃣ Product Sales & Trend Analysis 
+3️⃣ Add-On, Bundle, & Installment Behavior
 
 ```
 select
