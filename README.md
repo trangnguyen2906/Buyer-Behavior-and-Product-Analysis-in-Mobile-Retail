@@ -319,13 +319,14 @@ ORDER BY UniqueCustomers DESC;
 ```
 SELECT 
   YearOldRange,
-  COUNT(TransactionID) AS Installment_Orders
+  COUNT(CASE WHEN Payment_method = 'Trả góp' THEN TransactionID END) AS Installment_Orders,
+  COUNT(CASE WHEN Payment_method = 'Tiền mặt' THEN TransactionID END) AS Cash_Orders
 FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-WHERE LOWER(Payment_method) = 'installment'
 GROUP BY YearOldRange
 ORDER BY Installment_Orders DESC;
-
 ```
+<img src="https://drive.google.com/uc?export=view&id=1E09-0Cmu5PsrNqea2FkNBimISnepQoLN" width="600"/>
+
 
 #### 🟡 **Most Purchased Phones via Installments**
 
@@ -334,7 +335,7 @@ SELECT
   ProductName,
   COUNT(TransactionID) AS Installment_Orders
 FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-WHERE LOWER(Payment_method) = 'installment'
+WHERE Payment_method = 'Trả góp'
 GROUP BY ProductName
 ORDER BY Installment_Orders DESC
 LIMIT 10;
