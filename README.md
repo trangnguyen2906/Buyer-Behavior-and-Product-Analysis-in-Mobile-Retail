@@ -393,7 +393,7 @@ FROM ranked_products
 WHERE rank <= 6
 ORDER BY ProductBrand, rank;
 ```
-<img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="500"/>
+<img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="600"/>
 
 
 ---
