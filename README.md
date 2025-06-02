@@ -361,6 +361,15 @@ ORDER BY Installment_Rate_Percent DESC;
 ```
 <img src="https://drive.google.com/uc?export=view&id=13HPmgPlaCcyzSx4YWO7LWnqdgiJb_tR7" width="500"/>
 
+#### 💡 Findings: 
+- **Apple** and **Sony** lead in installment rate (~12%), despite lower sales volume.
+
+- **Nokia** and **Samsung** have the highest **installment volumes**, but lower rates (~10.5% and 6.5%) due to broad product ranges.
+
+- **Low-cost brands** (e.g., Q-SMART, Mobiistar) have **very low installment usage** (<5%).
+
+
+
 #### 🟡 **Installment Rate by ProductName (top 3 Brands)**
 
 ```
@@ -395,6 +404,8 @@ ORDER BY ProductBrand, rank;
 ```
 <img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="600"/>
 
+#### 💡 Findings: 
+Installment behavior is price-driven: Customers **tend to choose installment payments for higher-priced models** **(>5M VND)**, while lower-priced phones are mostly paid in full.
 
 ---
 
