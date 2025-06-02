@@ -118,7 +118,7 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 > ➤ Track customer volume over time to monitor acquisition and retention trends.
   
-```
+```sql
 SELECT
  format_date('%Y %m',parse_date('%Y %m %d',DatePurchase)) month
  ,COUNT(DISTINCT CustomerCode) AS count_customer
@@ -138,7 +138,7 @@ ORDER BY month;
 
 > ➤ Identify the most active customer segments for targeted marketing.
   
-```
+```sql
 SELECT 
   SexType,
   YearOldRange,
@@ -159,7 +159,7 @@ ORDER BY Total_Orders DESC;
 
 > ➤ Understand brand preference by gender to tailor promotional campaigns.
   
-```
+```sql
 WITH num_trans AS ( -- tính mỗi KH Nam/Nữ mua bn sp mỗi brand
    SELECT
        SexType
@@ -199,7 +199,7 @@ ORDER BY 1;
 
 > ➤ Reveal model-level product preferences for personalized recommendations.
 
-```
+```sql
 WITH phone_count AS (
   SELECT 
     SexType,
@@ -232,7 +232,7 @@ Both genders love **the S5360 (Toroto) series**, but females show stronger prefe
 #### 🟡 **What brands are most popular in each age group?**
 > ➤ Align brand strategy with age-specific customer preferences.
 
-```
+```sql
 WITH brand_age AS (
   SELECT 
     YearOldRange,
@@ -265,7 +265,7 @@ ORDER BY YearOldRange, rank;
 
 > ➤ Find high-value repeat customers to reward or upsell.
 
-```
+```sql
 WITH customer_orders AS (
   SELECT 
     CustomerCode,
@@ -299,7 +299,7 @@ ORDER BY loyalty_rank;
 #### 🟡 **Which city/region has the most active customers?**
 > ➤ Discover regional customer hotspots for local targeting or expansion.
 
-```
+```sql
 SELECT 
   GeographicalArea,
   COUNT(DISTINCT CustomerCode) AS UniqueCustomers
@@ -319,7 +319,8 @@ ORDER BY UniqueCustomers DESC;
 
 #### Total Sales per Month
 ➤ Monitor overall revenue trends to guide planning, promotions, and inventory decisions.
-```
+
+```sql
 SELECT 
   FORMAT_DATE('%Y-%m', PARSE_DATE('%Y %m %d', DatePurchase)) AS Month,
   SUM(SalesValue) AS TotalSales
@@ -339,7 +340,7 @@ ORDER BY Month;
 ####  🟡 What is the average order value per month?
 > ➤ Monitor purchasing behavior trends over time
 
-```
+```sql
 SELECT
   FORMAT_DATE('%Y-%m', PARSE_DATE('%Y %m %d', DatePurchase)) AS Month,
   ROUND(AVG(SalesValue), 2) AS AvgOrderValue
@@ -354,7 +355,7 @@ ORDER BY Month;
 #### 🟡 Which phone models are both high-selling and consistently ordered over months?
 > ➤ Identify stable products to support inventory planning and continuous marketing.
 
-```
+```sql
 SELECT 
   ProductName,
   ProductBrand,
@@ -373,7 +374,7 @@ ORDER BY TotalOrders DESC, ActiveMonths DESC
 #### 🟡 What are the top revenue-generating brands by market, and their best-selling model?
 > ➤ Discover which brands perform best in each region and identify their top-selling product to support regional inventory and sales strategies.
 
-```
+```sql
 WITH brand_revenue AS (
   SELECT 
     GeographicalArea,
@@ -438,7 +439,7 @@ ORDER BY b.GeographicalArea, b.TotalRevenue DESC;
 #### 🟡 **What is the attach rate of insurance and accessories for each phone brand?**
 > ➤ This helps evaluate how well each brand drives cross-selling opportunities through add-ons.
 
-```
+```sql
 --  Phone transactions by brand
 WITH phone_orders AS (
   SELECT TransactionID, ProductBrand
@@ -495,7 +496,7 @@ ORDER BY Insurance_Attach_Rate DESC;
 
 #### 🟡 **Which age groups are more likely to use installment payments?**
 
-```
+```sql
 WITH pay_by AS (
   SELECT 
     YearOldRange,
@@ -521,7 +522,7 @@ ORDER BY Installment_Orders DESC;
 
 #### 🟡 **Which phone brands have the highest rate of installment purchases?**
 
-```
+```sql
 WITH brand_payment_stats AS (
   SELECT 
     ProductBrand,
@@ -551,7 +552,7 @@ ORDER BY Installment_Rate_Percent DESC;
 
 #### 🟡 **Installment Rate by ProductName (top 3 Brands)**
 
-```
+```sql
 WITH product_installment_stats AS (
   SELECT 
     ProductBrand,
