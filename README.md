@@ -104,7 +104,15 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 ### 1️⃣ **Customer Behavior Analysis**
 
-🎯 **Objective**: Identify who the customers are, and understand their shopping habits
+🎯 **Objective**: This part explores who the customers are, how often they purchase, and their preferences by segment, with the goal to:
+
+- Identify high-value customer segments by age, gender, and region
+
+- Reveal loyal customers based on order frequency and total spending
+
+- Understand which demographics prefer specific brands or models
+
+- Support targeted marketing and customer segmentation strategies
 
 #### 🟡 **How many customers buy each month?**
 
@@ -313,6 +321,13 @@ ORDER BY UniqueCustomers DESC;
 -- Product positive growth in all 5 months 
 
 ### 3️⃣ Accessories, Insurance & Installment Behavior
+🎯 **Objective**: Analyze how customers engage with add-on products (insurance and accessories) and installment payment methods, in order to:
+
+- Identify cross-sell opportunities through insurance and accessory attach rates
+
+- Understand installment preferences by customer demographics (e.g., age) and product pricing
+
+- Support pricing, bundling, and financing strategies for each brand and model
 
 #### 🟡 **What is the attach rate of insurance and accessories for each phone brand?**
 > ➤ This helps evaluate how well each brand drives cross-selling opportunities through add-ons.
