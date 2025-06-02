@@ -307,14 +307,64 @@ ORDER BY UniqueCustomers DESC;
 - Followed by **Southeast (13,147)** and **Red River Delta (7,220)**
 
 
-2️⃣ Product Sales & Trend Analysis 
+### 2️⃣ Product Sales & Trend Analysis 
 
 -- Product --> Dimension: Time -- Customer age -- customer gender -- market 
 -- Product positive growth in all 5 months 
 
-3️⃣ Add-On, Bundle, & Installment Behavior
+### 3️⃣ Accessories, Insurance & Installment Behavior
 
-#### 🟡 **Installment Usage by Age Group**
+#### 🟡 **What is the attach rate of insurance and accessories for each phone brand?**
+> ➤ This helps evaluate how well each brand drives cross-selling opportunities through add-ons.
+
+```
+--  Phone transactions by brand
+WITH phone_orders AS (
+  SELECT TransactionID, ProductBrand
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+),
+
+--  Insurance transactions
+insurance_orders AS (
+  SELECT DISTINCT TransactionID
+  FROM `mobile-retail-2025.mobile_retail_analysis.Acccessories_Sales`
+  WHERE Accessories_subname = 'Bảo hiểm'
+),
+
+--  Accessory (non-insurance) transactions
+accessory_orders AS (
+  SELECT DISTINCT TransactionID
+  FROM `mobile-retail-2025.mobile_retail_analysis.Acccessories_Sales`
+  WHERE Accessories_subname != 'Bảo hiểm'
+),
+
+attach_rate_by_brand AS (
+  SELECT 
+    p.ProductBrand,
+    COUNT(DISTINCT p.TransactionID) AS Total_Transactions,
+    COUNT(DISTINCT i.TransactionID) AS Insurance_Transactions,
+    COUNT(DISTINCT a.TransactionID) AS Accessory_Transactions
+  FROM phone_orders p
+  LEFT JOIN insurance_orders i ON p.TransactionID = i.TransactionID
+  LEFT JOIN accessory_orders a ON p.TransactionID = a.TransactionID
+  GROUP BY p.ProductBrand
+)
+
+SELECT 
+  ProductBrand,
+  Total_Transactions,
+  Insurance_Transactions,
+  ROUND(Insurance_Transactions / Total_Transactions * 100, 2) AS Insurance_Attach_Rate,
+  Accessory_Transactions,
+  ROUND(Accessory_Transactions / Total_Transactions * 100, 2) AS Accessory_Attach_Rate
+FROM attach_rate_by_brand
+ORDER BY Insurance_Attach_Rate DESC;
+```
+
+<img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="600"/>
+
+
+#### 🟡 **Which age groups are more likely to use installment payments?**
 
 ```
 WITH pay_by AS (
@@ -340,7 +390,7 @@ ORDER BY Installment_Orders DESC;
 - All other age groups maintain a **roughly 6–7%** installment share.
 - While **cash remains dominant**, the interest in installments is strongest among **working-age adults (26–35)**.
 
-#### 🟡 **Installment Rate by ProductBrand**
+#### 🟡 **Which phone brands have the highest rate of installment purchases?**
 
 ```
 WITH brand_payment_stats AS (
