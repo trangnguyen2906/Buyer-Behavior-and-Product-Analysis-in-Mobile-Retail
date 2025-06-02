@@ -317,17 +317,95 @@ ORDER BY UniqueCustomers DESC;
 
 ### 2️⃣ Product Sales & Trend Analysis 
 ####  🟡 Average Order Value per Month
+> ➤ Monitor purchasing behavior trends over time to inform pricing and promotion strategies.
+
 ```
 SELECT
-  FORMAT_DATE('%Y %m',PARSE_DATE('%Y %m %d',DatePurchase)) month,
-  ROUND(AVG(SalesValue),2) AS Avg_Order_Value
+  FORMAT_DATE('%Y-%m', PARSE_DATE('%Y %m %d', DatePurchase)) AS Month,
+  ROUND(AVG(SalesValue), 2) AS AvgOrderValue
 FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-GROUP BY month
-ORDER BY month;
+GROUP BY Month
+ORDER BY Month;
+```
+<img src="https://drive.google.com/uc?id=1O6Ck_-Ay2uPDhbUY5qDVTQLfpRAcpw07" width="450"/>
+
+
+#### 🟡 Which phone models are both high-selling and consistently ordered over months?
+> ➤ Identify stable products to support inventory planning and continuous marketing.
+
+```
+SELECT 
+  ProductName,
+  ProductBrand,
+  COUNT(TransactionID) AS TotalOrders,
+  COUNT(DISTINCT EXTRACT(MONTH FROM PARSE_DATE('%Y %m %d', DatePurchase))) AS ActiveMonths
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY ProductName, ProductBrand
+HAVING ActiveMonths >= 3
+ORDER BY TotalOrders DESC, ActiveMonths DESC
 ```
 
-####
+<img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="500"/>
 
+
+#### 🟡 What are the top revenue-generating brands by market, and their best-selling model?
+> ➤ Discover which brands perform best in each region and identify their top-selling product to support regional inventory and sales strategies.
+
+```
+WITH brand_revenue AS (
+  SELECT 
+    GeographicalArea,
+    ProductBrand,
+    SUM(SalesValue) AS TotalRevenue
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY GeographicalArea, ProductBrand
+),
+
+product_orders AS (
+  SELECT 
+    GeographicalArea,
+    ProductBrand,
+    ProductName,
+    COUNT(TransactionID) AS TotalOrders
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY GeographicalArea, ProductBrand, ProductName
+),
+
+ranked_products AS (
+  SELECT *,
+    RANK() OVER (PARTITION BY GeographicalArea, ProductBrand ORDER BY TotalOrders DESC) AS product_rank
+  FROM product_orders
+),
+
+top_models AS (
+  SELECT 
+    GeographicalArea,
+    ProductBrand,
+    ProductName AS BestSellingProduct,
+    TotalOrders
+  FROM ranked_products
+  WHERE product_rank = 1
+)
+
+SELECT 
+  b.GeographicalArea,
+  b.ProductBrand,
+  b.TotalRevenue,
+  t.BestSellingProduct,
+  t.TotalOrders
+FROM brand_revenue b
+JOIN top_models t 
+  ON b.GeographicalArea = t.GeographicalArea AND b.ProductBrand = t.ProductBrand
+ORDER BY b.GeographicalArea, b.TotalRevenue DESC;
+```
+
+<img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="600"/>
+
+
+####
+```
+
+```
 
 ### 3️⃣ Accessories, Insurance & Installment Behavior
 🎯 **Objective**: Analyze how customers engage with add-on products (insurance and accessories) and installment payment methods, in order to:
