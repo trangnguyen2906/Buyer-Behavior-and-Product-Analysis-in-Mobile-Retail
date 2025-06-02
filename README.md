@@ -600,9 +600,23 @@ Installment behavior is price-driven: Customers **tend to choose installment pay
 
 ## 🔎 Final Conclusion & Recommendations  
 
-👉🏻 Based on the insights and findings above, we would recommend the [stakeholder team] to consider the following:  
+👉🏻 Based on the findings, here’s how mobile retailers can improve product strategy and sales decisions:
 
-📌 Key Takeaways:  
-✔️ Recommendation 1  
-✔️ Recommendation 2  
-✔️ Recommendation 3
+📌 Key Takeaways
+✅ 🎯 **Segment customers by age and location**
+→ The **26–35 age group** and urban regions like **Ho Chi Minh City** consistently drive the highest sales.
+→ Focus marketing, promotions, and product bundles on these segments for maximum ROI.
+
+✅ 📦 **Stock smartly based on demand patterns**
+→ **Regularly stock** models with strong and consistent orders across months
+(e.g., S5360, S6102, S1 White).
+→ **Monitor and scale** newer models with strong early sales (e.g., Lumia 520 Black) — their limited active months may reflect recent launches, not low demand.
+→ **Adapt inventory to market-specific trends:**
+• Sony Xperia performs well in the Red River Delta
+• Mobiistar Touch S02i is popular in southern regions,...
+
+✅ 💼 **Boost revenue via cross-sell and financing**
+→ **Installment usage** is highest among the 26–35 group and on mid-to-high priced models.
+→ **Samsung and Apple** lead in accessory & insurance attach rates.
+→ Other brands (e.g., Nokia, Q-SMART) have potential to replicate these strategies.
+
