@@ -363,6 +363,14 @@ ORDER BY Insurance_Attach_Rate DESC;
 
 <img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="600"/>
 
+#### 💡 Findings: 
+- **BlackBerry** leads in insurance attach rate (55.56%) and shows strong accessory sales (44.44%).
+
+- **Apple iPhone** has a solid insurance attach rate (20.03%) and high accessory attach rate (79.97%).
+
+- **Samsung** dominates accessory attach rate (88.43%) with moderate insurance uptake (11.57%).
+
+- Most other brands (e.g., Nokia, Q-SMART, Sony) show **0% attach rates, revealing missed cross-sell opportunities.**
 
 #### 🟡 **Which age groups are more likely to use installment payments?**
 
