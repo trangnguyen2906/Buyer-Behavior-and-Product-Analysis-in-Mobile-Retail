@@ -340,18 +340,61 @@ ORDER BY Installment_Orders DESC;
 - All other age groups maintain a **roughly 6–7%** installment share.
 - While **cash remains dominant**, the interest in installments is strongest among **working-age adults (26–35)**.
 
-#### 🟡 **Most Purchased Phones via Installments**
+#### 🟡 **Installment Rate by ProductBrand**
 
 ```
+WITH brand_payment_stats AS (
+  SELECT 
+    ProductBrand,
+    COUNT(TransactionID) AS Total_Orders,
+    COUNT(CASE WHEN Payment_method = 'Trả góp' THEN 1 END) AS Installment_Orders
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY ProductBrand
+)
 SELECT 
-  ProductName,
-  COUNT(TransactionID) AS Installment_Orders
-FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-WHERE Payment_method = 'Trả góp'
-GROUP BY ProductName
-ORDER BY Installment_Orders DESC
-LIMIT 10;
+  ProductBrand,
+  Installment_Orders,
+  Total_Orders,
+  ROUND(Installment_Orders / Total_Orders * 100, 2) AS Installment_Rate_Percent
+FROM brand_payment_stats
+ORDER BY Installment_Rate_Percent DESC;
 ```
+<img src="https://drive.google.com/uc?export=view&id=13HPmgPlaCcyzSx4YWO7LWnqdgiJb_tR7" width="500"/>
+
+#### 🟡 **Installment Rate by ProductName (top 3 Brands)**
+
+```
+WITH product_installment_stats AS (
+  SELECT 
+    ProductBrand,
+    ProductName,
+    Unitprice,
+    COUNT(TransactionID) AS Total_Orders,
+    COUNT(CASE WHEN Payment_method = 'Trả góp' THEN 1 END) AS Installment_Orders
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  WHERE ProductBrand IN ('NOKIA', 'SAMSUNG', 'Q-SMART')
+  GROUP BY ProductBrand, ProductName, Unitprice
+  HAVING Total_Orders >= 100
+),
+ranked_products AS (
+  SELECT *,
+    ROUND(Installment_Orders / Total_Orders * 100, 2) AS Installment_Rate_Percent,
+    DENSE_RANK() OVER (PARTITION BY ProductBrand ORDER BY Installment_Orders / Total_Orders DESC) AS rank
+  FROM product_installment_stats
+)
+SELECT 
+  ProductBrand,
+  ProductName,
+  Unitprice,
+  Installment_Orders,
+  Total_Orders,
+  Installment_Rate_Percent
+FROM ranked_products
+WHERE rank <= 6
+ORDER BY ProductBrand, rank;
+```
+<img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="500"/>
+
 
 ---
 
