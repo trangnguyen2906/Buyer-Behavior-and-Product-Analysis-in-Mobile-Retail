@@ -317,8 +317,27 @@ ORDER BY UniqueCustomers DESC;
 
 ### 2️⃣ Product Sales & Trend Analysis 
 
-####  🟡 Average Order Value per Month
-> ➤ Monitor purchasing behavior trends over time to inform pricing and promotion strategies.
+#### Total Sales per Month
+➤ Monitor overall revenue trends to guide planning, promotions, and inventory decisions.
+```
+SELECT 
+  FORMAT_DATE('%Y-%m', PARSE_DATE('%Y %m %d', DatePurchase)) AS Month,
+  SUM(SalesValue) AS TotalSales
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY Month
+ORDER BY Month;
+```
+<img src="https://drive.google.com/uc?export=view&id=1bzbRFijdMtxhYZRv8rdVi-PqbYs1vxOp" width="550"/>
+
+💡 **Findings:**
+
+- Total sales **grew consistently** from January to May.
+
+- May 2015 recorded the highest total revenue, suggesting strong market demand or effective promotions.
+
+
+####  🟡 What is the average order value per month?
+> ➤ Monitor purchasing behavior trends over time
 
 ```
 SELECT
