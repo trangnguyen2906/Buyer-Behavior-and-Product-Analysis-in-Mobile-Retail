@@ -367,7 +367,7 @@ HAVING ActiveMonths >= 3
 ORDER BY TotalOrders DESC, ActiveMonths DESC
 ```
 
-<img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="550"/>
+<img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="700"/>
 
 #### 💡 Findings: 
 
@@ -422,7 +422,7 @@ JOIN top_models t
 ORDER BY b.GeographicalArea, b.TotalRevenue DESC;
 ```
 
-<img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="700"/>
+<img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="750"/>
 
 #### 💡 Findings: 
 
@@ -483,7 +483,7 @@ FROM attach_rate_by_brand
 ORDER BY Insurance_Attach_Rate DESC;
 ```
 
-<img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="600"/>
+<img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="700"/>
 
 #### 💡 Findings: 
 - **BlackBerry** leads in insurance attach rate (55.56%) and shows strong accessory sales (44.44%).
@@ -513,7 +513,7 @@ SELECT
 FROM pay_by
 ORDER BY Installment_Orders DESC;
 ```
-<img src="https://drive.google.com/uc?export=view&id=1i696HnZpWgV3oZ5uCkrIenXJvBFIyk0G" width="600"/>
+<img src="https://drive.google.com/uc?export=view&id=1i696HnZpWgV3oZ5uCkrIenXJvBFIyk0G" width="700"/>
 
 #### 💡 Findings: 
 - The age group 31–35 has the highest installment usage ratio at 7.91%
@@ -539,7 +539,7 @@ SELECT
 FROM brand_payment_stats
 ORDER BY Installment_Rate_Percent DESC;
 ```
-<img src="https://drive.google.com/uc?export=view&id=13HPmgPlaCcyzSx4YWO7LWnqdgiJb_tR7" width="500"/>
+<img src="https://drive.google.com/uc?export=view&id=13HPmgPlaCcyzSx4YWO7LWnqdgiJb_tR7" width="700"/>
 
 #### 💡 Findings: 
 - **Apple** and **Sony** lead in installment rate (~12%), despite lower sales volume.
