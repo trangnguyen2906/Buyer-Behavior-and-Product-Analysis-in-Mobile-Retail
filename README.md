@@ -316,6 +316,7 @@ ORDER BY UniqueCustomers DESC;
 
 
 ### 2️⃣ Product Sales & Trend Analysis 
+
 ####  🟡 Average Order Value per Month
 > ➤ Monitor purchasing behavior trends over time to inform pricing and promotion strategies.
 
@@ -329,6 +330,7 @@ ORDER BY Month;
 ```
 <img src="https://drive.google.com/uc?id=1O6Ck_-Ay2uPDhbUY5qDVTQLfpRAcpw07" width="450"/>
 
+#### 💡 Findings: 
 
 #### 🟡 Which phone models are both high-selling and consistently ordered over months?
 > ➤ Identify stable products to support inventory planning and continuous marketing.
@@ -345,8 +347,9 @@ HAVING ActiveMonths >= 3
 ORDER BY TotalOrders DESC, ActiveMonths DESC
 ```
 
-<img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="500"/>
+<img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="550"/>
 
+#### 💡 Findings: 
 
 #### 🟡 What are the top revenue-generating brands by market, and their best-selling model?
 > ➤ Discover which brands perform best in each region and identify their top-selling product to support regional inventory and sales strategies.
@@ -399,13 +402,10 @@ JOIN top_models t
 ORDER BY b.GeographicalArea, b.TotalRevenue DESC;
 ```
 
-<img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="600"/>
+<img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="700"/>
 
+#### 💡 Findings: 
 
-####
-```
-
-```
 
 ### 3️⃣ Accessories, Insurance & Installment Behavior
 🎯 **Objective**: Analyze how customers engage with add-on products (insurance and accessories) and installment payment methods, in order to:
