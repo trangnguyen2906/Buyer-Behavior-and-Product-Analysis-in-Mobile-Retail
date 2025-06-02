@@ -328,7 +328,7 @@ FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
 GROUP BY Month
 ORDER BY Month;
 ```
-<img src="https://drive.google.com/uc?export=view&id=1bzbRFijdMtxhYZRv8rdVi-PqbYs1vxOp" width="550"/>
+<img src="https://drive.google.com/uc?export=view&id=1bzbRFijdMtxhYZRv8rdVi-PqbYs1vxOp" width="450"/>
 
 💡 **Findings:**
 
@@ -350,7 +350,7 @@ ORDER BY Month;
 ```
 <img src="https://drive.google.com/uc?id=1O6Ck_-Ay2uPDhbUY5qDVTQLfpRAcpw07" width="450"/>
 
-#### 💡 Findings: 
+#### 💡 Findings: Avg Order Value stayed stable (~44.5M–48.6M VND), peaking in January.
 
 #### 🟡 Which phone models are both high-selling and consistently ordered over months?
 > ➤ Identify stable products to support inventory planning and continuous marketing.
@@ -370,6 +370,13 @@ ORDER BY TotalOrders DESC, ActiveMonths DESC
 <img src="https://drive.google.com/uc?id=1ct7RSGDHppu7Jp6HiX14VmpKoPGRz5SS" width="700"/>
 
 #### 💡 Findings: 
+- Samsung dominates with multiple models having high order volumes over 5 active months (e.g., S5360, Galaxy S3 Mini, S6102).
+
+- Lumia 520 Black (NOKIA) is the single most ordered model, though only active in 3 months, suggesting short-term demand spikes.
+
+- Q-SMART shows solid mid-range presence with stable orders for S1 and S15 series.
+
+
 
 #### 🟡 What are the top revenue-generating brands by market, and their best-selling model?
 > ➤ Discover which brands perform best in each region and identify their top-selling product to support regional inventory and sales strategies.
@@ -424,7 +431,9 @@ ORDER BY b.GeographicalArea, b.TotalRevenue DESC;
 
 <img src="https://drive.google.com/uc?id=1k1JLF5gXpx2bEA9LlYHK-SnPW0rxfH6v" width="950"/>
 
-#### 💡 Findings: 
+#### 💡 Findings:  
+- Samsung led revenue across all regions; Nokia and Q-SMART performed well in key cities with standout models.
+- Each region shows unique brand strengths beyond Samsung—e.g., ST26i Xperia J (Sony) in the Red River Delta, Touch S02i (Mobiistar) in the South -> indicating **region-specific stocking should prioritize top-performing models per market.**
 
 
 ### 3️⃣ Accessories, Insurance & Installment Behavior
