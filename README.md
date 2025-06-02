@@ -483,7 +483,7 @@ FROM attach_rate_by_brand
 ORDER BY Insurance_Attach_Rate DESC;
 ```
 
-<img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="700"/>
+<img src="https://drive.google.com/uc?export=view&id=1_zZ0m1Y0LFBqZSq2E215b3MfCpJrdFST" width="750"/>
 
 #### 💡 Findings: 
 - **BlackBerry** leads in insurance attach rate (55.56%) and shows strong accessory sales (44.44%).
@@ -513,7 +513,7 @@ SELECT
 FROM pay_by
 ORDER BY Installment_Orders DESC;
 ```
-<img src="https://drive.google.com/uc?export=view&id=1i696HnZpWgV3oZ5uCkrIenXJvBFIyk0G" width="700"/>
+<img src="https://drive.google.com/uc?export=view&id=1i696HnZpWgV3oZ5uCkrIenXJvBFIyk0G" width="800"/>
 
 #### 💡 Findings: 
 - The age group 31–35 has the highest installment usage ratio at 7.91%
@@ -582,7 +582,7 @@ FROM ranked_products
 WHERE rank <= 6
 ORDER BY ProductBrand, rank;
 ```
-<img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="600"/>
+<img src="https://drive.google.com/uc?export=view&id=195s5lPg29C5RsCyu8TAp8YETWUsWEMz2" width="700"/>
 
 #### 💡 Findings: 
 Installment behavior is price-driven: Customers **tend to choose installment payments for higher-priced models** **(>5M VND)**, while lower-priced phones are mostly paid in full.
