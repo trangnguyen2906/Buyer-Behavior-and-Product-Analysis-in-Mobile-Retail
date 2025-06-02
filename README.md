@@ -317,16 +317,28 @@ ORDER BY UniqueCustomers DESC;
 #### 🟡 **Installment Usage by Age Group**
 
 ```
+WITH pay_by AS (
+  SELECT 
+    YearOldRange,
+    COUNT(CASE WHEN Payment_method = 'Trả góp' THEN TransactionID END) AS Installment_Orders,
+    COUNT(CASE WHEN Payment_method = 'Tiền mặt' THEN TransactionID END) AS Cash_Orders
+  FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+  GROUP BY YearOldRange
+)
 SELECT 
   YearOldRange,
-  COUNT(CASE WHEN Payment_method = 'Trả góp' THEN TransactionID END) AS Installment_Orders,
-  COUNT(CASE WHEN Payment_method = 'Tiền mặt' THEN TransactionID END) AS Cash_Orders
-FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
-GROUP BY YearOldRange
+  Installment_Orders,
+  Cash_Orders,
+  ROUND(Installment_Orders / (Installment_Orders + Cash_Orders) * 100, 2) AS Installment_Ratio
+FROM pay_by
 ORDER BY Installment_Orders DESC;
 ```
-<img src="https://drive.google.com/uc?export=view&id=1E09-0Cmu5PsrNqea2FkNBimISnepQoLN" width="600"/>
+<img src="https://drive.google.com/uc?export=view&id=1i696HnZpWgV3oZ5uCkrIenXJvBFIyk0G" width="600"/>
 
+#### 💡 Findings: 
+- The age group 31–35 has the highest installment usage ratio at 7.91%
+- All other age groups maintain a **roughly 6–7%** installment share.
+- While **cash remains dominant**, the interest in installments is strongest among **working-age adults (26–35)**.
 
 #### 🟡 **Most Purchased Phones via Installments**
 
