@@ -602,7 +602,8 @@ Installment behavior is price-driven: Customers **tend to choose installment pay
 
 👉🏻 Based on the findings, here’s how mobile retailers can improve product strategy and sales decisions:
 
-📌 Key Takeaways
+**📌 Key Takeaways:**
+
 ✅ 🎯 **Segment customers by age and location**
 → The **26–35 age group** and urban regions like **Ho Chi Minh City** consistently drive the highest sales.
 → Focus marketing, promotions, and product bundles on these segments for maximum ROI.
