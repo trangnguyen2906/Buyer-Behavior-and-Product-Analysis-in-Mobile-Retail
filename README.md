@@ -1,5 +1,7 @@
 # 📊 Analyze Consumer Behavior & Enhance Product Strategy in Mobile Retail using SQL
----
+
+<img src="https://drive.google.com/uc?id=1MWHyevdD0y_c_Rvt_9V7WtSILdwEgQ6n" width="700"/>
+
 
 ## 📑 Table of Contents  
 1. [📌 Background & Overview](#-background--overview)  
