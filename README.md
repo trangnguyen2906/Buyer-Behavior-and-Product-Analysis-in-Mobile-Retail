@@ -316,9 +316,18 @@ ORDER BY UniqueCustomers DESC;
 
 
 ### 2️⃣ Product Sales & Trend Analysis 
+####  🟡 Average Order Value per Month
+```
+SELECT
+  FORMAT_DATE('%Y %m',PARSE_DATE('%Y %m %d',DatePurchase)) month,
+  ROUND(AVG(SalesValue),2) AS Avg_Order_Value
+FROM `mobile-retail-2025.mobile_retail_analysis.Phone_Sales`
+GROUP BY month
+ORDER BY month;
+```
 
--- Product --> Dimension: Time -- Customer age -- customer gender -- market 
--- Product positive growth in all 5 months 
+####
+
 
 ### 3️⃣ Accessories, Insurance & Installment Behavior
 🎯 **Objective**: Analyze how customers engage with add-on products (insurance and accessories) and installment payment methods, in order to:
