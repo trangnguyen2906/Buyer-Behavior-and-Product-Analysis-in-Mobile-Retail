@@ -18,20 +18,20 @@
 
 - Mobile retailers often struggle to align their **product strategies** with actual **consumer purchase behaviors.**
   
-This project uses **SQL** to analyze mobile phone transaction data to answer:
+- This project uses **SQL** to analyze mobile phone transaction data to answer:
 
-> **How can mobile retailers improve product strategies and sales decisions based on consumer purchase patterns?**
+> How can mobile retailers **improve product strategies** and **sales decisions** based on **consumer purchase patterns**?
 
-By understanding **who buys what, when, and how** (e.g., through bundles or installments), retailers can:
+- By understanding **who buys what, when, and how** (e.g., through bundles or installments), retailers can:
 
 ✅ Identify high-value **customer segments** (by age/gender)  
 ✅ Discover **top-performing products** and **seasonal trends**  
 ✅ Analyze **add-on and installment behaviors** to guide pricing and bundling
 
-🔍 These insights support:  
-- Smarter **inventory decisions**  
-- Targeted **marketing campaigns**  
-- Higher **revenue per customer**
+- 🔍 These insights support:  
+  + Smarter **inventory decisions**
+  + Targeted **marketing campaigns**
+  + Higher **revenue per customer**
 
 ### 👤 Who is this project for?  
 
