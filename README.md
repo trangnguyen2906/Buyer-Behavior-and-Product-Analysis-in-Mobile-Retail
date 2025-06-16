@@ -67,7 +67,7 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 #### 2️⃣ Table Schema & Data Snapshot  
 
 <details>
-<summary>📄 Table 1: Phone_Sales – View Schema</summary>
+<summary><strong>📄 Table 1: Phone_Sales – View Schema</strong></summary>
 
 | Column Name       | Data Type | Description                              |
 |-------------------|-----------|------------------------------------------|
@@ -89,11 +89,9 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 </details>
 
----
-
 <details>
-<summary>📄 Table 2: Accessories_Sales – View Schema</summary>
-
+<summary><strong>📄 Table 2: Accessories_Sales – View Schema</strong></summary>
+  
 | Column Name          | Data Type | Description                          |
 |----------------------|-----------|--------------------------------------|
 | TransactionID        | TEXT      | Transaction ID (can match phone sales) |
@@ -105,9 +103,6 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 | SalesValue           | FLOAT     | Total value of the transaction       |
 
 </details>
-
-
----
 
 ## ⚒️ Main Process
 
