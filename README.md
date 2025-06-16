@@ -66,38 +66,45 @@ These two tables can be **joined via `transactionID` or `customer_code`**
 
 #### 2️⃣ Table Schema & Data Snapshot  
 
-**Table 1: Phone_Sales**
+<details>
+<summary>📄 Table 1: Phone_Sales – View Schema</summary>
 
-| Column Name        | Data Type | Description                            |
-|--------------------|-----------|----------------------------------------|
-| TransactionID      | TEXT      | Unique transaction identifier          |
-| CustomerCode       | TEXT      | Unique customer identifier             |
-| ProductName        | TEXT      | Name of the phone model                |
-| ProductBrand       | TEXT      | Brand of the phone                     |
-| DatePurchase       | DATE      | Date of transaction                    |
-| GeographicalArea   | TEXT      | City or region of purchase             |
-| Payment_method     | TEXT      | Payment type (e.g., Full, Installment) |
-| Bank               | TEXT      | Bank used for installment (if any)     |
-| Color              | TEXT      | Color of phone                         |
-| Carrier            | TEXT      | Mobile carrier (e.g., Mobifone)        |
-| SexType            | TEXT      | Gender of the customer                 |
-| YearOldRange       | TEXT      | Age group of customer                  |
-| Unitprice          | FLOAT     | Price per phone unit                   |
-| SalesValue         | FLOAT     | Total transaction value                |
-| Unit               | INT       | Quantity purchased         
+| Column Name       | Data Type | Description                              |
+|-------------------|-----------|------------------------------------------|
+| TransactionID     | TEXT      | Unique transaction identifier            |
+| CustomerCode      | TEXT      | Unique customer identifier               |
+| ProductName       | TEXT      | Name of the phone model                  |
+| ProductBrand      | TEXT      | Brand of the phone                       |
+| DatePurchase      | DATE      | Date of transaction                      |
+| GeographicalArea  | TEXT      | City or region of purchase               |
+| Payment_method    | TEXT      | Payment type (e.g., Full, Installment)   |
+| Bank              | TEXT      | Bank used for installment (if any)       |
+| Color             | TEXT      | Color of phone                           |
+| Carrier           | TEXT      | Mobile carrier (e.g., Mobifone)          |
+| SexType           | TEXT      | Gender of the customer                   |
+| YearOldRange      | TEXT      | Age group of customer                    |
+| Unitprice         | FLOAT     | Price per phone unit                     |
+| SalesValue        | FLOAT     | Total transaction value                  |
+| Unit              | INT       | Quantity purchased                       |
 
+</details>
 
-**Table 2: Accessories Sales**
+---
 
-| Column Name         | Data Type | Description                            |
-|---------------------|-----------|----------------------------------------|
-| TransactionID       | TEXT      | Transaction ID (can match phone sales) |
-| CustomerCode        | TEXT      | Unique customer identifier             |
-| Accessories_name    | TEXT      | Name of the accessory                  |
-| Accessories_subname | TEXT      | Accessory subtype                      |
-| Unitprice           | FLOAT     | Unit price of accessory                |
-| Unit                | INT       | Quantity purchased                     |
-| SalesValue          | FLOAT     | Total value of the transaction  
+<details>
+<summary>📄 Table 2: Accessories_Sales – View Schema</summary>
+
+| Column Name          | Data Type | Description                          |
+|----------------------|-----------|--------------------------------------|
+| TransactionID        | TEXT      | Transaction ID (can match phone sales) |
+| CustomerCode         | TEXT      | Unique customer identifier           |
+| Accessories_name     | TEXT      | Name of the accessory                |
+| Accessories_subname  | TEXT      | Accessory subtype                    |
+| Unitprice            | FLOAT     | Unit price of accessory              |
+| Unit                 | INT       | Quantity purchased                   |
+| SalesValue           | FLOAT     | Total value of the transaction       |
+
+</details>
 
 
 ---
