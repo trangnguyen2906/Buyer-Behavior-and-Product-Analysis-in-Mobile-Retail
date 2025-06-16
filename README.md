@@ -6,10 +6,10 @@
 ## 📑 Table of Contents  
 1. [📌 Background & Overview](#-background--overview)  
 2. [📂 Dataset Description & Data Structure](#-dataset-description--data-structure)
-3. [📂 Main Process](#%EF%B8%8F-main-process)
-   - [📂 Customer Behavior Analysis](#1%EF%B8%8F⃣-customer-behavior-analysis)
-   - [📂 Product Sales Trend Analysis](#2%EF%B8%8F⃣-product-sales--trend-analysis)
-   - [📂 Accessories, Insurance Installment Behavior](#3%EF%B8%8F⃣-accessories-insurance--installment-behavior)
+3. [⚒️ Main Process](#%EF%B8%8F-main-process)
+   - [🧑‍💼 Customer Behavior Analysis](#1%EF%B8%8F⃣-customer-behavior-analysis)
+   - [📱 Product Sales Trend Analysis](#2%EF%B8%8F⃣-product-sales--trend-analysis)
+   - [🛍️ Accessories, Insurance Installment Behavior](#3%EF%B8%8F⃣-accessories-insurance--installment-behavior)
 4. [🔎 Final Conclusion & Recommendations](#-final-conclusion--recommendations)
 
 ---
