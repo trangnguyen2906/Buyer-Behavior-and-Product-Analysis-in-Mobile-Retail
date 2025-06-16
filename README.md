@@ -322,7 +322,7 @@ ORDER BY UniqueCustomers DESC;
 ### 2️⃣ Product Sales & Trend Analysis 
 
 #### 🟡 Total Sales per Month
-➤ Monitor overall revenue trends to guide planning, promotions, and inventory decisions.
+> ➤ Monitor overall revenue trends to guide planning, promotions, and inventory decisions.
 
 ```sql
 SELECT 
