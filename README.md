@@ -15,23 +15,23 @@
 
 ### 🎯 Objective:
 ### 📖 What is this project about? What Business Question will it solve?
+
 - Mobile retailers often struggle to align their **product strategies** with actual **consumer purchase behaviors.**
   
-- Understanding **who buys what, when, and how** (e.g. through bundles or installments) is critical for:
-  +  Making informed **inventory decisions**
-  +  Launching targeted **marketing campaigns**
-  +  Increasing **revenue per customer**
+This project uses **SQL** to analyze mobile phone transaction data to answer:
 
-- This project **uses SQL** to analyze mobile phone transaction data to solve the following problem:
+> **How can mobile retailers improve product strategies and sales decisions based on consumer purchase patterns?**
 
-> How can mobile retailers **improve product strategy** and **sales decisions** based on consumer purchase patterns in mobile retail?
+By understanding **who buys what, when, and how** (e.g., through bundles or installments), retailers can:
 
-✅ Identify which customer segments (by age/gender) drive the most purchases and revenue
+✅ Identify high-value **customer segments** (by age/gender)  
+✅ Discover **top-performing products** and **seasonal trends**  
+✅ Analyze **add-on and installment behaviors** to guide pricing and bundling
 
-✅ Discover top-performing products and seasonal trends
-
-✅ Analyze add-on and installment behavior to guide pricing and bundling strategies
-
+🔍 These insights support:  
+- Smarter **inventory decisions**  
+- Targeted **marketing campaigns**  
+- Higher **revenue per customer**
 
 ### 👤 Who is this project for?  
 
