@@ -321,7 +321,7 @@ ORDER BY UniqueCustomers DESC;
 
 ### 2️⃣ Product Sales & Trend Analysis 
 
-#### Total Sales per Month
+#### 🟡 Total Sales per Month
 ➤ Monitor overall revenue trends to guide planning, promotions, and inventory decisions.
 
 ```sql
@@ -354,7 +354,8 @@ ORDER BY Month;
 ```
 <img src="https://drive.google.com/uc?id=1O6Ck_-Ay2uPDhbUY5qDVTQLfpRAcpw07" width="450"/>
 
-#### 💡 Findings: Avg Order Value stayed stable (~44.5M–48.6M VND), peaking in January.
+#### 💡 Findings: 
+Avg Order Value stayed stable (~44.5M–48.6M VND), peaking in January.
 
 #### 🟡 Which phone models are both high-selling and consistently ordered over months?
 > ➤ Identify stable products to support inventory planning and continuous marketing.
@@ -379,7 +380,6 @@ ORDER BY TotalOrders DESC, ActiveMonths DESC
 - Lumia 520 Black (NOKIA) is the single most ordered model, though only active in 3 months, suggesting short-term demand spikes.
 
 - Q-SMART shows solid mid-range presence with stable orders for S1 and S15 series.
-
 
 
 #### 🟡 What are the top revenue-generating brands by market, and their best-selling model?
